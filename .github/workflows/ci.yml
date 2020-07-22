@@ -17,3 +17,26 @@ jobs:
 
       - name: listing
         run: ls docs
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: homework
+          path: docs
+
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: downlad artifact for job 1
+        uses: actions/download-artifact@v2
+        with:
+          name: homework
+          path: docs
+
+      - name: Listing
+        run: ls docs
+
+      - name: check zip version
+        run: zip --version
+
