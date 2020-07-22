@@ -40,3 +40,9 @@ jobs:
       - name: check zip version
         run: zip --version
 
+      - name: zip release
+        run: zip -r dist.zip docs
+
+      - name: List after zipping
+        run: ls docs
+
