@@ -43,6 +43,11 @@ jobs:
       - name: zip release
         run: zip -r dist.zip docs
 
+      - name: moving to dist
+        run: |
+          mkdir dist
+          mv dist.zip dist
+
       - name: List after zipping
-        run: ls docs
+        run: ls dist
 
