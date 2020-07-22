@@ -1,0 +1,23 @@
+name: CICD
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: upload binnaries
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: docs/hello.txt
+          asset_name: pejus
+          tag: v12
+          overwrite: true
+          body: "holo"
