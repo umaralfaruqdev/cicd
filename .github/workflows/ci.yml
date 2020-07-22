@@ -11,12 +11,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: make file
+        run: |
+          expr 90 + 2 > docs/math.txt
 
-      - name: upload binnaries
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: docs/hello.txt
-          tag: v13
-          overwrite: true
-          body: "holo"
+      - name: listing
+        run: ls docs
